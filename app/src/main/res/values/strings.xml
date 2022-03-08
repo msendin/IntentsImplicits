@@ -17,7 +17,7 @@
 
     <string name="lat">41.60788</string>
     <string name="lon">0.623333</string>
-    <string name="url">http://www.eps.udl.cat/ca/</string>
+    <string name="url">http://www.eps.udl.cat/</string>
     <string name="direccion">Carrer de Jaume II, 69, Lleida</string>
     <string name="textoABuscar">escuela politecnica superior UdL</string>
 

@@ -89,12 +89,10 @@ public class MainActivity extends Activity implements OnClickListener{
         }
     }
 
-
     @Override
     protected void onResume() {
         super.onResume();
-        if (Build.VERSION.SDK_INT >= 23)
-            if (! ckeckPermissions())
+        if (Build.VERSION.SDK_INT >= 23 && !ckeckPermissions())
                 requestPermissions();
     }
 
@@ -102,8 +100,7 @@ public class MainActivity extends Activity implements OnClickListener{
         if (Build.VERSION.SDK_INT >= 23) {
             return ckeckPermissionsCallPhone() && ckeckPermissionsReadContacts();
         }
-        else
-            return true;
+        else return true;
     }
 
     private boolean ckeckPermissionsCallPhone() {

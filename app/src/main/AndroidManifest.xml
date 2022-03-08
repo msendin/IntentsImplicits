@@ -13,8 +13,8 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.IntentsImplicits">
         <activity
-            android:name="com.example.intentsimplicits.MainActivity"
-            android:label="@string/app_name" >
+            android:name="udl.eps.intentsimplicits.MainActivity"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
