@@ -92,8 +92,8 @@ public class MainActivity extends Activity implements OnClickListener{
     @Override
     protected void onResume() {
         super.onResume();
-        if (Build.VERSION.SDK_INT >= 23 && !ckeckPermissions())
-                requestPermissions();
+        //if (Build.VERSION.SDK_INT >= 23 && !ckeckPermissions())
+                //requestPermissions();
     }
 
     private boolean ckeckPermissions() {
