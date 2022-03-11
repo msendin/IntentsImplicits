@@ -50,7 +50,6 @@ public class MainActivity extends Activity implements OnClickListener{
     @SuppressLint("NonConstantResourceId")
     @Override
     public void onClick (View v) {
-        Intent in;
         final String lat = getString(R.string.lat);
         final String lon = getString(R.string.lon);
         final String url = getString(R.string.url);
@@ -59,26 +58,16 @@ public class MainActivity extends Activity implements OnClickListener{
 
         switch (v.getId()) {
             case R.id.button1:
-                Toast.makeText(this, getString(R.string.opcion1), Toast.LENGTH_LONG).show();
-                in = new Intent(Intent.ACTION_VIEW, Uri.parse("geo:" + lat + ',' + lon));
-                startActivity(in);
+                locateForCoordinates(lat,lon);
                 break;
             case R.id.button2:
-                Toast.makeText(this, getString(R.string.opcion2), Toast.LENGTH_LONG).show();
-                in = new Intent(Intent.ACTION_VIEW, Uri.parse("geo:0,0?q=" + address));
-                startActivity(in);
+                locateByAddress(address);
                 break;
             case R.id.button3:
-                Toast.makeText(this, getString(R.string.opcion3), Toast.LENGTH_LONG).show();
-                in = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
-                startActivity(in);
+                accessWeb(url);
                 break;
             case R.id.button4:
-                Toast.makeText(this, getString(R.string.opcion4), Toast.LENGTH_LONG).show();
-                //in = new Intent(Intent.ACTION_VIEW, Uri.parse("http://www.google.com/search?q=" + textToSearch));
-                in = new Intent(Intent.ACTION_WEB_SEARCH);
-                in.putExtra(SearchManager.QUERY, textToSearch);
-                startActivity(in);
+                seachGoogle(textToSearch);
                 break;
             case R.id.button5:
                 callPhoneIfPermissions();
@@ -94,6 +83,41 @@ public class MainActivity extends Activity implements OnClickListener{
         super.onResume();
         //if (Build.VERSION.SDK_INT >= 23 && !ckeckPermissions())
                 //requestPermissions();
+    }
+
+    private void locateForCoordinates(String lat, String lon) {
+        Intent intent;
+
+        Toast.makeText(this, getString(R.string.opcion1), Toast.LENGTH_LONG).show();
+        intent = new Intent(Intent.ACTION_VIEW, Uri.parse("geo:" + lat + ',' + lon));
+        startActivity(intent);
+    }
+
+    private void locateByAddress(String address) {
+        Intent intent;
+
+        Toast.makeText(this, getString(R.string.opcion2), Toast.LENGTH_LONG).show();
+        intent = new Intent(Intent.ACTION_VIEW, Uri.parse("geo:0,0?q=" + address));
+        startActivity(intent);
+    }
+
+    private void accessWeb(String url) {
+        Intent intent;
+
+        Toast.makeText(this, getString(R.string.opcion3), Toast.LENGTH_LONG).show();
+        intent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
+        startActivity(intent);
+    }
+
+    private void seachGoogle(String textToSearch) {
+        Intent intent;
+
+        Toast.makeText(this, getString(R.string.opcion4), Toast.LENGTH_LONG).show();
+        Intent in = new Intent(Intent.ACTION_WEB_SEARCH);
+        in.putExtra(SearchManager.QUERY, textToSearch);
+        startActivity(in);
+        //Alternative method
+        //in = new Intent(Intent.ACTION_VIEW, Uri.parse("http://www.google.com/search?q=" + textToSearch));
     }
 
     private boolean ckeckPermissions() {
