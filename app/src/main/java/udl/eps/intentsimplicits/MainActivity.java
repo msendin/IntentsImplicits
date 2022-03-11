@@ -58,7 +58,7 @@ public class MainActivity extends Activity implements OnClickListener{
 
         switch (v.getId()) {
             case R.id.button1:
-                locateForCoordinates(lat,lon);
+                locateByCoordinates(lat,lon);
                 break;
             case R.id.button2:
                 locateByAddress(address);
@@ -85,11 +85,11 @@ public class MainActivity extends Activity implements OnClickListener{
                 //requestPermissions();
     }
 
-    private void locateForCoordinates(String lat, String lon) {
+    private void locateByCoordinates(String lat, String lon) {
         Intent intent;
 
         Toast.makeText(this, getString(R.string.opcion1), Toast.LENGTH_LONG).show();
-        intent = new Intent(Intent.ACTION_VIEW, Uri.parse("geo:" + lat + ',' + lon));
+        intent = new Intent(Intent.ACTION_VIEW, Uri.parse("geo:" + lat + ',' + lon + "?q=" + lat + ',' + lon));
         startActivity(intent);
     }
 
