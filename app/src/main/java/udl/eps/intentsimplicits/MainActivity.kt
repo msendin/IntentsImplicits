@@ -63,7 +63,8 @@ class MainActivity : ComponentActivity(), View.OnClickListener {
                     intent.action = Settings.ACTION_APPLICATION_DETAILS_SETTINGS
                     val uri = Uri.fromParts(
                         "package",
-                        BuildConfig.APPLICATION_ID , null
+                        //BuildConfig.APPLICATION_ID , null
+                        packageName, null
                     )  // Amb la darrera API level deprecated. Ara és packageName
                     intent.data = uri
                     intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK
