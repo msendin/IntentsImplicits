@@ -212,7 +212,7 @@ class MainActivity : ComponentActivity(), View.OnClickListener {
                 R.string.readcontacts_permission_rationale,
                 android.R.string.ok
             ) { // Request permission
-                readContactsReqPermLaunc.launch(Manifest.permission.CALL_PHONE)
+                readContactsReqPermLaunc.launch(Manifest.permission.READ_CONTACTS)
             }
         } else {
             Log.i(TAG, "Requesting permission")
